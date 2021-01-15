@@ -4,8 +4,6 @@ import Controllers.AuthorizationController;
 import Models.Feed;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ViewerHome extends JFrame {
     private JButton logoutButton;
@@ -14,14 +12,16 @@ public class ViewerHome extends JFrame {
     private JLabel titleLabel;
     private JScrollPane feedScrollPane;
     private Feed feed;
+    private AuthorizationController authorizationController;
 
     public ViewerHome() {
         super("Creator Hub | Viewer Home");
         this.setContentPane(this.mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        this.authorizationController = new AuthorizationController();
         logoutButton.addActionListener(e -> {
-            AuthorizationController.logout();
+            this.authorizationController.logout();
             dispose();
             Main mainFrame = new Main();
             mainFrame.setVisible(true);

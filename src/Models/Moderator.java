@@ -36,20 +36,4 @@ public class Moderator {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public void acceptCreator(User user) {}
-
-    public ArrayList<Report> getReports() {
-        return new ArrayList<>();
-    }
-
-    public void deletePost(Post post) {}
-
-    public void banUser(User user) {}
-
-    public void warnUser(User user) {}
-
-    public ArrayList<CreatorRequest> getCreatorRequests() {
-        return new ArrayList<>();
-    }
 }

@@ -13,8 +13,4 @@ public class FollowerState extends ViewerState {
     public FollowerState(String id, String name, String country, String email, boolean banned, ArrayList<String> warnings) {
         super(id, name, country, email, banned, warnings);
     }
-
-    public void unfollow(Creator creator) {}
-
-    public void subscribe(Creator creator) {}
 }

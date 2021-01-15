@@ -3,6 +3,8 @@ package Views;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class Main extends JFrame {
     private JPanel mainPanel;

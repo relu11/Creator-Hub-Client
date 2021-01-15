@@ -3,8 +3,7 @@ package Models;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Creator extends User implements Observer {
-    // TODO: Update types
+public class Creator extends User {
     private double moneyEarned;
     private ArrayList<User> followersList;
     private ArrayList<Post> posts;
@@ -90,24 +89,5 @@ public class Creator extends User implements Observer {
 
     public void setChats(ArrayList<Chat> chats) {
         this.chats = chats;
-    }
-
-    public void addPost(Post post) {}
-
-    public void deletePOst(Post post) {}
-
-    public int getLikesCount() {
-        return 0;
-    }
-
-    public HashMap<String, Double> getAnalytics() {
-        return new HashMap<>();
-    }
-
-    public void withDrawMoney(double amount) {}
-
-    @Override
-    public void update() {
-
     }
 }

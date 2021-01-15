@@ -13,8 +13,4 @@ public class NormalState extends ViewerState {
     public NormalState(String id, String name, String country, String email, boolean banned, ArrayList<String> warnings) {
         super(id, name, country, email, banned, warnings);
     }
-
-    public void follow(Creator creator) {}
-
-    public void subscribe(Creator creator) {}
 }

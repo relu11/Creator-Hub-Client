@@ -14,14 +14,18 @@ public class Login extends JFrame {
     private JLabel passwordLabel;
     private JLabel titleLabel;
     private JPanel mainPanel;
+    private AuthorizationController authorizationController;
 
     public Login() {
         super("Creator Hub | Login");
         this.setContentPane(this.mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+
+        this.authorizationController = new AuthorizationController();
+
         loginButton.addActionListener(e -> {
-            AuthorizationController.login(emailField.getText(), passwordField.getText());
+            this.authorizationController.login(emailField.getText(), passwordField.getText());
             dispose();
             ViewerHome viewerHome = new ViewerHome();
             viewerHome.setVisible(true);

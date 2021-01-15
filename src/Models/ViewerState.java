@@ -3,6 +3,9 @@ package Models;
 import java.util.ArrayList;
 
 public class ViewerState extends User {
+    protected ArrayList<Creator> followedCreators;
+    protected ArrayList<Creator> subscribed;
+
     public ViewerState() {
     }
 
@@ -14,11 +17,19 @@ public class ViewerState extends User {
         super(id, name, country, email, banned, warnings);
     }
 
-    public void becomeCreator() {}
+    public ArrayList<Creator> getFollowedCreators() {
+        return followedCreators;
+    }
 
-    public void follow(Creator creator) {}
+    public void setFollowedCreators(ArrayList<Creator> followedCreators) {
+        this.followedCreators = followedCreators;
+    }
 
-    public void subscribe(Creator creator) {}
+    public ArrayList<Creator> getSubscribed() {
+        return subscribed;
+    }
 
-    public void reportCreator(Creator creator) {}
+    public void setSubscribed(ArrayList<Creator> subscribed) {
+        this.subscribed = subscribed;
+    }
 }
