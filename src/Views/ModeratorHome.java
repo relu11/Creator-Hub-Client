@@ -5,9 +5,14 @@
  */
 package Views;
 
+import Controllers.AuthorizationController;
 import Controllers.ModeratorController;
 import Models.CreatorRequest;
+import Models.Post;
 import java.util.ArrayList;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -21,9 +26,24 @@ public class ModeratorHome extends javax.swing.JFrame {
      */
     public ModeratorHome() {
         this.moderatorController = new ModeratorController();
-        ArrayList<CreatorRequest> requests = this.moderatorController.getCreatorRequests();
         
         initComponents();
+        init();
+    }
+    
+    private void init() {
+        ArrayList<CreatorRequest> requests = this.moderatorController.getCreatorRequests();
+        System.out.println(requests);
+        JPanel view = new JPanel();
+        BoxLayout boxlayout = new BoxLayout(view, BoxLayout.Y_AXIS);
+        view.setLayout(boxlayout);
+        requestsScrollPane.setViewportView(view);
+        for (CreatorRequest request : requests) {
+            String requestString = request.getUser().getName() + "\n" + request.getUser().getCountry();
+            JTextArea textArea = new JTextArea(requestString);
+            textArea.setEditable(false);
+            view.add(textArea);
+        }
     }
 
     /**
@@ -38,11 +58,14 @@ public class ModeratorHome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         requestsScrollPane = new javax.swing.JScrollPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         titleLabel.setText("Moderator Home");
+
+        jLabel1.setText("Creator Requests");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -53,7 +76,9 @@ public class ModeratorHome extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(requestsScrollPane)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(titleLabel)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titleLabel)
+                            .addComponent(jLabel1))
                         .addGap(0, 749, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -62,9 +87,11 @@ public class ModeratorHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titleLabel)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(requestsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,6 +150,7 @@ public class ModeratorHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane requestsScrollPane;
     private javax.swing.JLabel titleLabel;

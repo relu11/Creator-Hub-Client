@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Creator;
 import Models.Post;
 import Models.User;
 
@@ -8,6 +9,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PostsController {
     private IPostsController serverPostsController;
@@ -42,6 +45,15 @@ public class PostsController {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public void createPost(Post post, User user) {
+        try {
+            this.serverPostsController.CreatePost((Creator) user, post);
+            System.out.println("Created");
+        } catch (RemoteException ex) {
+            Logger.getLogger(PostsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

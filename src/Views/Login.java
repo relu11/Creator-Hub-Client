@@ -38,6 +38,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         loginButton = new javax.swing.JButton();
+        creatorCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,19 +68,28 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        creatorCheckBox.setText("Creator");
+        creatorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creatorCheckBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(loginButton)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addComponent(passwordField))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(creatorCheckBox)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(loginButton)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)
+                        .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addComponent(passwordField)))
                 .addContainerGap(761, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,7 +105,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(18, 18, 18)
+                .addComponent(creatorCheckBox)
+                .addGap(29, 29, 29)
                 .addComponent(loginButton)
                 .addContainerGap(180, Short.MAX_VALUE))
         );
@@ -128,11 +140,23 @@ public class Login extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        this.authorizationController.login(emailField.getText(), passwordField.getText());
-        dispose();
-        ViewerHome viewerHome = new ViewerHome();
-        viewerHome.setVisible(true);
+        if (creatorCheckBox.isSelected()) {
+            this.authorizationController.creatorSignin(emailField.getText(), passwordField.getText());
+            dispose();
+            CreatorView creatorView = new CreatorView();
+            creatorView.setVisible(true);
+                    
+        } else {
+            this.authorizationController.login(emailField.getText(), passwordField.getText());
+            dispose();
+            ViewerHome viewerHome = new ViewerHome();
+            viewerHome.setVisible(true);
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void creatorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creatorCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_creatorCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +195,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox creatorCheckBox;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

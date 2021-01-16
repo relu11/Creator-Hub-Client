@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Creator;
 import Models.User;
 
 import java.rmi.NotBoundException;
@@ -53,11 +54,18 @@ public class AuthorizationController {
                 System.out.println(user.getCountry());
                 System.out.println(user.getEmail());
                 System.out.println(user.getName());
+                currentUser = user;
             }
 
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         System.out.println("Sign up");
+    }
+    
+    public Creator creatorSignin(String email, String password) {
+        Creator creator = new Creator("test creator","egypt","test@test.com");
+        currentUser = creator;
+        return creator;
     }
 }

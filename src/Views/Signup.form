@@ -53,7 +53,7 @@
                       <Component id="signupButton" max="32767" attributes="0"/>
                       <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="nameField" alignment="0" max="32767" attributes="0"/>
                       <Component id="passwordField" alignment="0" max="32767" attributes="0"/>
                       <Component id="emailField" alignment="0" max="32767" attributes="0"/>
                       <Component id="countryField" alignment="0" max="32767" attributes="0"/>
@@ -72,7 +72,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                  <Component id="nameField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -101,15 +101,18 @@
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="nameField">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="signupButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Signup"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="passwordLabel">
           <Properties>

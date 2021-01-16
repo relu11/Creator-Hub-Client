@@ -50,7 +50,6 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setText("Creators Hub");
 
         signupButton.setText("Signup");
-        signupButton.setActionCommand("Signup");
         signupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signupButtonActionPerformed(evt);
@@ -118,6 +117,9 @@ public class Main extends javax.swing.JFrame {
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
         // TODO add your handling code here:
+        dispose();
+        Signup signup = new Signup();
+        signup.setVisible(true);
     }//GEN-LAST:event_signupButtonActionPerformed
 
     private void moderatorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moderatorButtonActionPerformed

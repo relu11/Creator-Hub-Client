@@ -5,16 +5,19 @@
  */
 package Views;
 
+import Controllers.AuthorizationController;
+
 /**
  *
  * @author Islam Mohamed
  */
 public class Signup extends javax.swing.JFrame {
-
+    private AuthorizationController authorizationController;
     /**
      * Creates new form Signup
      */
     public Signup() {
+        authorizationController = new AuthorizationController();
         initComponents();
     }
 
@@ -31,7 +34,7 @@ public class Signup extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         emailField = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nameField = new javax.swing.JTextField();
         signupButton = new javax.swing.JButton();
         passwordLabel = new javax.swing.JLabel();
         countryLabel = new javax.swing.JLabel();
@@ -44,13 +47,18 @@ public class Signup extends javax.swing.JFrame {
 
         nameLabel.setText("Name");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                nameFieldActionPerformed(evt);
             }
         });
 
         signupButton.setText("Signup");
+        signupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupButtonActionPerformed(evt);
+            }
+        });
 
         passwordLabel.setText("Password");
 
@@ -74,7 +82,7 @@ public class Signup extends javax.swing.JFrame {
                     .addComponent(signupButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nameLabel)
                     .addComponent(emailLabel)
-                    .addComponent(jTextField2)
+                    .addComponent(nameField)
                     .addComponent(passwordField)
                     .addComponent(emailField)
                     .addComponent(countryField))
@@ -90,7 +98,7 @@ public class Signup extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(nameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(passwordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -127,9 +135,21 @@ public class Signup extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_nameFieldActionPerformed
+
+    private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
+        // TODO add your handling code here:
+        String email = emailField.getText();
+        String password = passwordField.getText();
+        String name = nameField.getText();
+        String country = countryField.getText();
+        this.authorizationController.signup(email, password, name, country);
+        dispose();
+        ViewerHome viewerHome = new ViewerHome();
+        viewerHome.setVisible(true);
+    }//GEN-LAST:event_signupButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,7 +192,7 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;

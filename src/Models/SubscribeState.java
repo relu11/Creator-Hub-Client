@@ -1,13 +1,14 @@
 package Models;
 
-
+import Controllers.Database;
 
 import java.util.ArrayList;
 
-public class SubscribeState extends ViewerState {
+public class SubscribeState extends ViewerState implements Observer {
     private ArrayList<Chat> chats;
 
     public SubscribeState() {
+        super();
     }
 
     public SubscribeState(ArrayList<Chat> chats, ArrayList<Creator> subscribed) {
@@ -32,5 +33,24 @@ public class SubscribeState extends ViewerState {
         this.chats = chats;
     }
 
+    public void startChat(Creator creator) {
+        Chat chat = new Chat(creator, this, new ArrayList<>(), new ArrayList<>());
+        this.chats.add(chat);
+//        creator.addChat(chat);
+        Database database = Database.getCurrentDatabase();
+        database.updateObject("Users", this, "id", this.getId());
+    }
 
+    public void unsubscribe(Creator creator) {
+        this.subscribed.remove(creator);
+
+        Database database = Database.getCurrentDatabase();
+        database.updateObject("Users", this, "id", this.getId());
+    }
+
+    @Override
+    public void update(String type) {
+        if(type == "Subscriber")
+        System.out.println("A new message is sent from creator");
+    }
 }
