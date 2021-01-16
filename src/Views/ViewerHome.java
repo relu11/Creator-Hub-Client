@@ -24,6 +24,7 @@ public class ViewerHome extends JFrame {
         this.authorizationController = new AuthorizationController();
         this.postsController = new PostsController();
         this.postsController.getPosts(AuthorizationController.getCurrentUser());
+//        this.postsController.getPost(AuthorizationController.getCurrentUser());
         logoutButton.addActionListener(e -> {
             this.authorizationController.logout();
             dispose();

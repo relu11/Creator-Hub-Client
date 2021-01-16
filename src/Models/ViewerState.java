@@ -1,5 +1,7 @@
 package Models;
 
+
+
 import java.util.ArrayList;
 
 public class ViewerState extends User {
@@ -7,15 +9,22 @@ public class ViewerState extends User {
     protected ArrayList<Creator> subscribed;
 
     public ViewerState() {
+        followedCreators = new ArrayList<>();
+        subscribed = new ArrayList<>();
     }
 
     public ViewerState(String name, String country, String email) {
         super(name, country, email);
+        followedCreators = new ArrayList<>();
+        subscribed = new ArrayList<>();
     }
 
     public ViewerState(String id, String name, String country, String email, boolean banned, ArrayList<String> warnings) {
         super(id, name, country, email, banned, warnings);
+        followedCreators = new ArrayList<>();
+        subscribed = new ArrayList<>();
     }
+
 
     public ArrayList<Creator> getFollowedCreators() {
         return followedCreators;

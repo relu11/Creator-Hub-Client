@@ -31,4 +31,17 @@ public class PostsController {
         }
         return null;
     }
+
+    public Post getPost(User user) {
+        System.out.println("Get Post");
+        try {
+            Post post = this.serverPostsController.GetPost(user);
+            System.out.println(post);
+            return post;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

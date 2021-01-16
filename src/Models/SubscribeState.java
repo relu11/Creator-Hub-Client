@@ -1,5 +1,7 @@
 package Models;
 
+
+
 import java.util.ArrayList;
 
 public class SubscribeState extends ViewerState {
@@ -29,4 +31,6 @@ public class SubscribeState extends ViewerState {
     public void setChats(ArrayList<Chat> chats) {
         this.chats = chats;
     }
+
+
 }
