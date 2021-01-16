@@ -1,5 +1,4 @@
 package Controllers;
-
 import Models.User;
 
 import java.rmi.Remote;

@@ -1,6 +1,6 @@
 package Models;
 
-import java.util.ArrayList;
+
 
 public class Moderator {
     private String id;
@@ -36,4 +36,8 @@ public class Moderator {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+
+
 }

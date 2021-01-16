@@ -1,9 +1,11 @@
 package Models;
 
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Creator extends User {
+public class Creator extends User implements Serializable {
     private double moneyEarned;
     private ArrayList<User> followersList;
     private ArrayList<Post> posts;
@@ -42,7 +44,10 @@ public class Creator extends User {
         this.bankAccount = bankAccount;
         this.chats = chats;
     }
+    public Creator(String name, String country, String email){
+        super(name, country, email);
 
+    }
     public double getMoneyEarned() {
         return moneyEarned;
     }
@@ -90,4 +95,28 @@ public class Creator extends User {
     public void setChats(ArrayList<Chat> chats) {
         this.chats = chats;
     }
+
+    public int getLikesCount() {
+        // TODO: Update later
+        return 0;
+    }
+
+    public HashMap<String, Double> getAnalytics() {
+        // TODO: Update later
+        return new HashMap<>();
+    }
+
+    public void withDrawMoney(double amount) {
+        System.out.println("Withdrawing Money");
+        if (amount <= this.moneyEarned && amount > 0) {
+            this.moneyEarned -= amount;
+            System.out.println("Money withdrawn successfully");
+        } else {
+            // TODO: Add error handling instead
+            System.out.println("Invalid value entered");
+        }
+    }
+
+
+
 }
